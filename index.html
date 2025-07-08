@@ -12,6 +12,10 @@
 				max-width: 600px;
 				margin: auto;
 				padding: 10px;
+				
+				background-repeat: no-repeat;
+				background-position: center center;
+				background-image: radial-gradient(darkgreen 1%, black);
 			}
 			
 			.center
@@ -23,11 +27,7 @@
 			
 			body
 			{
-				<!-- background-color:#0f0f0f; -->
-				background-repeat:no-repeat;
-				background-position:top left;
-				background-attachment:fixed;
-				background-image: radial-gradient(darkgreen 1%, black);
+				background-color:#0f0f0f;
 			}
 			
 			img
@@ -70,7 +70,8 @@
 			}
 		</style>
 	</head>
-	<body class="content">
+	<body>
+	<div class="content">
 		<!-- Indicația din pagina Facebook 'how to embed...' recomandă citarea scriptului să fie făcută imediat după tag-ul de body -->
 		<div id="fb-root"></div>
 		<script async defer crossorigin="anonymous" src="https://connect.facebook.net/ro_RO/sdk.js#xfbml=1&version=v23.0"></script>
@@ -103,7 +104,7 @@
 		<br>
 
 		<!-- Instagram embed -->
-		<blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/trupa.sonar/" data-instgrm-version="12" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:undefinedpx;height:undefinedpx;max-height:100%; width:undefinedpx;">
+		<blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/trupa.sonar/" data-instgrm-version="12" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:600px; min-width:326px; padding:0; width:99.375%; width:undefinedpx;height:undefinedpx;max-height:100%; width:undefinedpx;">
 			<div style="padding:16px;">
 				<a id="main_link" href="trupa.sonar/" style=" background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;" target="_blank">
 					<div style=" display: flex; flex-direction: row; align-items: center;">
@@ -179,5 +180,6 @@
 		<p>Dacă nu răspunde:</p>
 		<p><a href="tel:+40743754095"> 0743.754.095 (Florin)</a></p>
 		<br>
+	</div>
 	</body>
 </html>

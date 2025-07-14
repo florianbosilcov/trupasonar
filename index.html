@@ -130,7 +130,7 @@
 			<!-- Indicația din pagina Facebook 'how to embed...' recomandă citarea scriptului să fie făcută imediat după tag-ul de body -->
 			<div id="fb-root"></div>
 			<script async defer crossorigin="anonymous" src="https://connect.facebook.net/ro_RO/sdk.js#xfbml=1&version=v23.0"></script>
-			<script src="https://static.elfsight.com/platform/platform.js" async></script>
+			<script async src="https://static.elfsight.com/platform/platform.js"></script>
 			<script async src="https://www.tiktok.com/embed.js"></script>
 			
 			<!-- Pagina propriu-zisă -->
@@ -153,7 +153,7 @@
 			
 			<!-- Facebook embed -->
 			<h2>Facebook</h2>
-			<div class="fb-page" data-href="https://www.facebook.com/trupa.sonar" data-tabs="timeline" data-width="500" data-height="" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
+			<div id="fb_emb" class="fb-page" data-href="https://www.facebook.com/trupa.sonar" data-tabs="timeline" data-width="500" data-height="" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
 				<blockquote cite="https://www.facebook.com/trupa.sonar" class="fb-xfbml-parse-ignore">
 					<a href="https://www.facebook.com/trupa.sonar">Trupa Sonar</a>
 				</blockquote>
@@ -163,14 +163,15 @@
 
 			<!-- Instagram embed -->
 			<h2>Instagram</h2>
-			<div class="elfsight-app-e869ce04-c22a-4bb7-bcf0-2e284310fb7d" data-elfsight-app-lazy></div>
+			<div id="ig_emb" class="elfsight-app-e869ce04-c22a-4bb7-bcf0-2e284310fb7d" data-elfsight-app-lazy></div>
 					
 			<!-- TikTok embed -->
 			<h2>TikTok</h2>
-			<blockquote class="tiktok-embed" cite="https://www.tiktok.com/@trupasonar" data-unique-id="trupasonar" data-embed-from="embed_page" data-embed-type="creator" style="max-width:780px; min-width:288px;">
-				<section> <a target="_blank" href="https://www.tiktok.com/@trupasonar?refer=creator_embed">@trupasonar</a> </section>
-			</blockquote>
-			
+			<div id="tt_emb">
+				<blockquote class="tiktok-embed" cite="https://www.tiktok.com/@trupasonar" data-unique-id="trupasonar" data-embed-from="embed_page" data-embed-type="creator" style="max-width:780px; min-width:288px;">
+					<section> <a target="_blank" href="https://www.tiktok.com/@trupasonar?refer=creator_embed">@trupasonar</a> </section>
+				</blockquote>
+			</div>
 			<br>
 
 			<h1>Contactează-ne</h1>
@@ -186,7 +187,7 @@
 				<p>Site-ul nostru nu folosește cookies de niciun fel, însă cookie-urile din profilurile noastre de social media încorporate constituie cookies plasate de terți. Poți accepta sau respinge aceste cookie-uri.</p>
 				<div class="cookie-buttons">
 					<button class="accept-btn" onclick="handleConsent(true)">Accept</button>
-					<button class="reject-btn" onclick="handleConsent(false)">Reject</button>
+					<button class="reject-btn" onclick="handleConsent(false)">Resping</button>
 				</div>
 			</div>
 

@@ -152,24 +152,40 @@
 			
 			<!-- Facebook embed -->
 			<h2>Facebook</h2>
-			<div id="fb_emb" class="fb-page" data-href="https://www.facebook.com/trupa.sonar" data-tabs="timeline" data-width="500" data-height="" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
-				<blockquote cite="https://www.facebook.com/trupa.sonar" class="fb-xfbml-parse-ignore">
-					<a href="https://www.facebook.com/trupa.sonar">Trupa Sonar</a>
-				</blockquote>
+			<div id="fb_emb">
+				<div class="fb-page" data-href="https://www.facebook.com/trupa.sonar" data-tabs="timeline" data-width="500" data-height="" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
+					<blockquote cite="https://www.facebook.com/trupa.sonar" class="fb-xfbml-parse-ignore">
+						<a href="https://www.facebook.com/trupa.sonar">Trupa Sonar</a>
+					</blockquote>
+				</div>
+				<br>
+				<br>
 			</div>
-			<br>
-			<br>
-
+			<div id="fb_lnk">
+				<a href="https://www.facebook.com/trupa.sonar">Apasă aici pentru a merge la profilul nostru de Facebook.</a> <br>
+				<p><i>(Nu putem afișa profilul în pagină deoarece ai respins cookie-urile)</i></p>
+			</div>
+			
 			<!-- Instagram embed -->
 			<h2>Instagram</h2>
-			<div id="ig_emb" class="elfsight-app-e869ce04-c22a-4bb7-bcf0-2e284310fb7d" data-elfsight-app-lazy></div>
+			<div id="ig_emb">
+				<div class="elfsight-app-e869ce04-c22a-4bb7-bcf0-2e284310fb7d" data-elfsight-app-lazy></div>
+			</div>
+			<div id="ig_lnk">
+				<a href="https://www.instagram.com/trupa.sonar/">Apasă aici pentru a merge la profilul nostru de Instagram.</a> <br>
+				<p><i>(Nu putem afișa profilul în pagină deoarece ai respins cookie-urile)</i></p>
+			</div>
 					
 			<!-- TikTok embed -->
 			<h2>TikTok</h2>
 			<div id="tt_emb">
 				<blockquote class="tiktok-embed" cite="https://www.tiktok.com/@trupasonar" data-unique-id="trupasonar" data-embed-from="embed_page" data-embed-type="creator" style="max-width:780px; min-width:288px;">
-					<div> <a target="_blank" href="https://www.tiktok.com/@trupasonar?refer=creator_embed">@trupasonar</a> </div>
+					<div><a target="_blank" href="https://www.tiktok.com/@trupasonar?refer=creator_embed">@trupasonar</a></div>
 				</blockquote>
+			</div>
+			<div id="tt_lnk">
+				<a href="https://www.tiktok.com/@trupasonar">Apasă aici pentru a merge la profilul nostru de TikTok.</a> <br>
+				<p><i>(Nu putem afișa profilul în pagină deoarece ai respins cookie-urile)</i></p>
 			</div>
 			<br>
 
@@ -177,8 +193,8 @@
 			<p>
 				✉  <a href="mailto:trupasonar@gmail.com"> trupasonar@gmail.com </a>	<br><br>
 				✆  <a href="tel:+40722696388">0722.696.388</a> (Cătălin)				<br>
-				sau																	<br>
-				✆  <a href="tel:+40743754095">0743.754.095</a> (Florin)				<br><br>
+				sau																		<br>
+				✆  <a href="tel:+40743754095">0743.754.095</a> (Florin)					<br><br>
 				Apel direct sau mesaj pe WhatsApp, cum îți pică mai bine.
 			</p>
 
@@ -191,33 +207,71 @@
 			</div>
 
 			<script>
-				function handleConsent(accepted)
-				{
-					localStorage.setItem('thirdPartyCookiesConsent', accepted ? 'accepted' : 'rejected');
-					document.getElementById('cookie-banner').style.display = 'none';
-
-					if (accepted)
-					{
-						const facebookDiv = document.getElementById('fb_emb');
-						facebookDiv.style.display = 'none'
-
-						// Initialize third-party scripts here
-						// console.log('User accepted third-party cookies');
-						// Example: loadGoogleAnalytics();
-					}
-					else
-					{
-						console.log('User rejected third-party cookies');
-						// Block or avoid loading third-party scripts
-					}
-				}
-
 				window.onload = function ()
 				{
+					const facebookEmb	= document.getElementById('fb_emb');
+					const instagramEmb	= document.getElementById('ig_emb');
+					const tiktokEmb		= document.getElementById('tt_emb');
+					
+					const facebookLnk	= document.getElementById('fb_lnk');
+					const instagramLnk	= document.getElementById('ig_lnk');
+					const tiktokLnk		= document.getElementById('tt_lnk');
+					
 					const consent = localStorage.getItem('thirdPartyCookiesConsent');
 					if (consent)
 					{
-						//document.getElementById('cookie-banner').style.display = 'none';
+						facebookEmb.style.display	= 'block';
+						instagramEmb.style.display	= 'block';
+						tiktokEmb.style.display		= 'block';
+						
+						facebookLnk.style.display	= 'none';
+						instagramLnk.style.display	= 'none';
+						tiktokLnk.style.display		= 'none';
+					}
+					else
+					{
+						facebookEmb.style.display	= 'none';
+						instagramEmb.style.display	= 'none';
+						tiktokEmb.style.display		= 'none';
+						
+						facebookLnk.style.display	= 'block';
+						instagramLnk.style.display	= 'block';
+						tiktokLnk.style.display		= 'block';
+					}
+				}
+				
+				function handleConsent(accepted)
+				{
+					localStorage.setItem('thirdPartyCookiesConsent', accepted ? 'accepted' : 'rejected');
+					//document.getElementById('cookie-banner').style.display = 'none';
+
+					const facebookEmb	= document.getElementById('fb_emb');
+					const instagramEmb	= document.getElementById('ig_emb');
+					const tiktokEmb		= document.getElementById('tt_emb');
+					
+					const facebookLnk	= document.getElementById('fb_lnk');
+					const instagramLnk	= document.getElementById('ig_lnk');
+					const tiktokLnk		= document.getElementById('tt_lnk');
+
+					if (accepted)
+					{
+						facebookEmb.style.display	= 'block';
+						instagramEmb.style.display	= 'block';
+						tiktokEmb.style.display		= 'block';
+						
+						facebookLnk.style.display	= 'none';
+						instagramLnk.style.display	= 'none';
+						tiktokLnk.style.display		= 'none';
+					}
+					else
+					{
+						facebookEmb.style.display	= 'none';
+						instagramEmb.style.display	= 'none';
+						tiktokEmb.style.display		= 'none';
+						
+						facebookLnk.style.display	= 'block';
+						instagramLnk.style.display	= 'block';
+						tiktokLnk.style.display		= 'block';
 					}
 				}
 			</script>

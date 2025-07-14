@@ -88,7 +88,7 @@
 				justify-content: space-between;
 				align-items: center;
 				z-index: 9999;
-				font-family: Arial, sans-serif;
+				font-family: Arial;
 			}
 
 			#cookie-banner p
@@ -198,8 +198,11 @@
 
 					if (accepted)
 					{
+						const facebookDiv = document.getElementById('fb_emb');
+						facebookDiv.style.display = 'none'
+
 						// Initialize third-party scripts here
-						console.log('User accepted third-party cookies');
+						// console.log('User accepted third-party cookies');
 						// Example: loadGoogleAnalytics();
 					}
 					else

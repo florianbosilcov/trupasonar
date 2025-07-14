@@ -196,12 +196,15 @@
 				✆  <a href="tel:+40743754095">0743.754.095</a> (Florin)					<br><br>
 				Apel direct sau mesaj pe WhatsApp, cum îți pică mai bine.
 			</p>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
+			
+			<div id="cookie_banner_spacing">
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+			</div>
 
 			<div id="cookie-banner">
 				<p>Site-ul nostru nu folosește cookie-uri de niciun fel, însă cele din profilurile noastre de social media încorporate sunt, prin definiție, cookie-uri plasate de terți. Poți accepta sau respinge aceste cookie-uri.</p>
@@ -247,14 +250,16 @@
 				function handleConsent(accepted)
 				{
 					document.getElementById('cookie-banner').style.display = 'none';
+					const cbSpacing			= document.getElementById('cookie_banner_spacing');
+					cbSpacing.style.display	= 'none';
 
-					const facebookEmb	= document.getElementById('fb_emb');
-					const instagramEmb	= document.getElementById('ig_emb');
-					const tiktokEmb		= document.getElementById('tt_emb');
+					const facebookEmb		= document.getElementById('fb_emb');
+					const instagramEmb		= document.getElementById('ig_emb');
+					const tiktokEmb			= document.getElementById('tt_emb');
 					
-					const facebookLnk	= document.getElementById('fb_lnk');
-					const instagramLnk	= document.getElementById('ig_lnk');
-					const tiktokLnk		= document.getElementById('tt_lnk');
+					const facebookLnk		= document.getElementById('fb_lnk');
+					const instagramLnk		= document.getElementById('ig_lnk');
+					const tiktokLnk			= document.getElementById('tt_lnk');
 
 					if (accepted)
 					{

@@ -74,6 +74,55 @@
 				font-size:16px;
 				color:#ffffff;
 			}
+			
+			#cookie-banner
+			{
+				position: fixed;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				background-color: #222;
+				color: #fff;
+				padding: 20px;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				z-index: 9999;
+				font-family: Arial, sans-serif;
+			}
+
+			#cookie-banner p
+			{
+				margin: 0;
+				flex: 1;
+				font-size: 14px;
+			}
+			
+			.cookie-buttons
+			{
+				margin-left: 20px;
+			}
+
+			.cookie-buttons button
+			{
+				margin-left: 10px;
+				padding: 8px 12px;
+				border: none;
+				border-radius: 4px;
+				cursor: pointer;
+			}
+
+			.accept-btn
+			{
+				background-color: #4caf50;
+				color: white;
+			}
+
+			.reject-btn
+			{
+				background-color: #f44336;
+				color: white;
+			}
 		</style>
 	</head>
 	<body>
@@ -81,6 +130,8 @@
 			<!-- Indicația din pagina Facebook 'how to embed...' recomandă citarea scriptului să fie făcută imediat după tag-ul de body -->
 			<div id="fb-root"></div>
 			<script async defer crossorigin="anonymous" src="https://connect.facebook.net/ro_RO/sdk.js#xfbml=1&version=v23.0"></script>
+			<script src="https://static.elfsight.com/platform/platform.js" async></script>
+			<script async src="https://www.tiktok.com/embed.js"></script>
 			
 			<!-- Pagina propriu-zisă -->
 			<img class="center" src="images/Logo_Sonar_nobg.png" alt="Logo Sonar w/o BG">
@@ -112,7 +163,6 @@
 
 			<!-- Instagram embed -->
 			<h2>Instagram</h2>
-			<script src="https://static.elfsight.com/platform/platform.js" async></script>
 			<div class="elfsight-app-e869ce04-c22a-4bb7-bcf0-2e284310fb7d" data-elfsight-app-lazy></div>
 					
 			<!-- TikTok embed -->
@@ -120,7 +170,7 @@
 			<blockquote class="tiktok-embed" cite="https://www.tiktok.com/@trupasonar" data-unique-id="trupasonar" data-embed-from="embed_page" data-embed-type="creator" style="max-width:780px; min-width:288px;">
 				<section> <a target="_blank" href="https://www.tiktok.com/@trupasonar?refer=creator_embed">@trupasonar</a> </section>
 			</blockquote>
-			<script async src="https://www.tiktok.com/embed.js"></script>
+			
 			<br>
 
 			<h1>Contactează-ne</h1>
@@ -129,8 +179,45 @@
 				✆  <a href="tel:+40722696388">0722.696.388</a> (Cătălin)				<br>
 				sau																	<br>
 				✆  <a href="tel:+40743754095">0743.754.095</a> (Florin)				<br><br>
-				Apel direct sau pe WhatsApp, cum îți pică mai bine.
+				Apel direct sau mesaj pe WhatsApp, cum îți pică mai bine.
 			</p>
+
+			<div id="cookie-banner">
+				<p>Site-ul nostru nu folosește cookies de niciun fel, însă cookie-urile din profilurile noastre de social media încorporate constituie cookies plasate de terți. Poți accepta sau respinge aceste cookie-uri.</p>
+				<div class="cookie-buttons">
+					<button class="accept-btn" onclick="handleConsent(true)">Accept</button>
+					<button class="reject-btn" onclick="handleConsent(false)">Reject</button>
+				</div>
+			</div>
+
+			<script>
+				function handleConsent(accepted)
+				{
+					localStorage.setItem('thirdPartyCookiesConsent', accepted ? 'accepted' : 'rejected');
+					document.getElementById('cookie-banner').style.display = 'none';
+
+					if (accepted)
+					{
+						// Initialize third-party scripts here
+						console.log('User accepted third-party cookies');
+						// Example: loadGoogleAnalytics();
+					}
+					else
+					{
+						console.log('User rejected third-party cookies');
+						// Block or avoid loading third-party scripts
+					}
+				}
+
+				window.onload = function ()
+				{
+					const consent = localStorage.getItem('thirdPartyCookiesConsent');
+					if (consent)
+					{
+						//document.getElementById('cookie-banner').style.display = 'none';
+					}
+				}
+			</script>
 		</div>
 	</body>
 </html>

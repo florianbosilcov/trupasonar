@@ -49,7 +49,6 @@ table
 td
 {
 	text-align: center;
-	align: center;
 	font-family:Arial;
 	font-size:16px;
 	color:#ffffff;
@@ -128,4 +127,9 @@ td img
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
+}
+
+.splitter
+{
+	width: 10%;
 }

@@ -1,30 +1,6 @@
-.content
-{
-	max-width: 500px;
-	margin: auto;
-	padding: 10px;
-	
-	background-repeat: no-repeat;
-	background-position: center center;
-	background-image: radial-gradient(darkgreen 1%, black);
-}
-
-.center
-{
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
-}
-
-body
+body 
 {
 	background-color:#0f0f0f;
-}
-
-img
-{
-	width: 100%;
-	height: auto;
 }
 
 h1
@@ -50,20 +26,42 @@ p
 	text-justify: auto;
 }
 
-li
-{
-	font-family:Arial;
-	font-size:16px;
-	font-style:normal;
-	font-weight:normal;
-	color:#ffffff;
-}
-
 a
 {
 	font-family:Arial;
 	font-size:16px;
 	color:#ffffff;
+}
+
+img
+{
+	width: 100%;
+	height: auto;
+}
+
+table
+{
+	max-width: 500px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+td
+{
+	text-align: center;
+	align: center;
+	font-family:Arial;
+	font-size:16px;
+	color:#ffffff;
+}
+
+td img
+{
+	max-width: 200px;
+	border-radius: 25px;
+	
+	box-shadow:	0 4px 8px 0 rgba(128, 128, 128, 0.2),
+				0 6px 20px 0 rgba(200, 200, 200, 0.19);
 }
 
 #cookie-banner
@@ -114,24 +112,20 @@ a
 	color: white;
 }
 
-table
+.content
 {
 	max-width: 500px;
+	margin: auto;
+	padding: 10px;
+	
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-image: radial-gradient(darkgreen 1%, black);
+}
+
+.center
+{
+	display: block;
 	margin-left: auto;
 	margin-right: auto;
-}
-
-td
-{
-	text-align: center;
-	align: center;
-	font-family:Arial;
-	font-size:16px;
-	color:#ffffff;
-}
-
-td img
-{
-	max-width: 200px;
-	border-radius: 25px;
 }

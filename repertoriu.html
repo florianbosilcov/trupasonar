@@ -1,12 +1,226 @@
 <!DOCTYPE html>
 <html lang="ro">
 	<head>
+		<meta charset="UTF-8">
 		<title>Repertoriu Sonar</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="style.css">
 		<style>
-			table {width:90%; font-size: 30px}
+			body {
+				padding: 1.5rem 0.75rem;
+			}
+			
+			h1 {
+				text-align: center;
+				color: var(--color-accent);
+				margin-bottom: 2rem;
+				font-size: clamp(1.5rem, 4vw, 2.25rem);
+				scroll-margin-top: 80px;
+			}
+			
+			table {
+				width: 100%;
+				max-width: 1000px;
+				margin: 0 auto;
+				font-size: clamp(0.75rem, 1.8vw, 1.05rem);
+				border-collapse: collapse;
+				background: rgba(255, 255, 255, 0.02);
+				border-radius: var(--radius);
+				overflow: hidden;
+				box-shadow: 0 10px 40px var(--shadow-dark);
+			}
+			
+			tr {
+				border-bottom: 2px solid rgba(255, 255, 255, 0.15);
+				transition: background 0.3s ease;
+			}
+			
+			tr:hover {
+				background: rgba(0, 255, 136, 0.05);
+			}
+			
+			td {
+				padding: 0.6rem 0.85rem;
+				word-wrap: break-word;
+				vertical-align: middle;
+			}
+			
+			td:first-child {
+				color: var(--color-accent);
+				font-weight: 600;
+				min-width: 50px;
+			}
+			
+			tr.mix-row td {
+				color: var(--color-white) !important;
+			}
+			
+			@media screen and (max-width: 480px) {
+				body {
+					padding: 0.75rem 0.4rem;
+				}
+				
+				h1 {
+					margin-bottom: 1.5rem;
+				}
+				
+				table {
+					font-size: 0.65rem;
+					max-width: 100%;
+				}
+				
+				td {
+					padding: 0.35rem 0.4rem;
+				}
+				
+				td:first-child {
+					min-width: 40px;
+				}
+			}
+			
+			@media screen and (min-width: 481px) and (max-width: 768px) {
+				body {
+					padding: 1.25rem 0.75rem;
+				}
+				
+				h1 {
+					margin-bottom: 1.75rem;
+				}
+				
+				table {
+					font-size: 0.8rem;
+					max-width: 750px;
+				}
+				
+				td {
+					padding: 0.5rem 0.65rem;
+				}
+			}
+			
+			@media screen and (min-width: 769px) and (max-width: 1024px) {
+				body {
+					padding: 1.75rem 1rem;
+				}
+				
+				table {
+					font-size: 0.95rem;
+					max-width: 900px;
+				}
+				
+				td {
+					padding: 0.7rem 0.85rem;
+				}
+			}
+			
+			@media screen and (min-width: 1025px) and (max-width: 1439px) {
+				body {
+					padding: 2rem 1.25rem;
+				}
+				
+				table {
+					font-size: 1rem;
+					max-width: 1000px;
+				}
+				
+				td {
+					padding: 0.75rem 1rem;
+				}
+			}
+			
+			@media screen and (min-width: 1440px) and (max-width: 1919px) {
+				body {
+					padding: 2.5rem 1.5rem;
+				}
+				
+				table {
+					font-size: 1.1rem;
+					max-width: 1100px;
+				}
+				
+				td {
+					padding: 0.85rem 1.25rem;
+				}
+			}
+			
+			@media screen and (min-width: 1920px) {
+				body {
+					padding: 3rem 2rem;
+				}
+				
+				table {
+					font-size: 1.2rem;
+					max-width: 1200px;
+				}
+				
+				td {
+					padding: 1rem 1.5rem;
+				}
+				
+				td:first-child {
+					min-width: 65px;
+				}
+			}
+			
+			@media screen and (min-width: 2560px) {
+				table {
+					font-size: 1.35rem;
+					max-width: 1400px;
+				}
+				
+				td {
+					padding: 1.1rem 1.75rem;
+				}
+			}
 		</style>
 	</head>
 	<body>
+			<nav class="navbar">
+			<div class="nav-container">
+				<button class="mobile-menu-toggle" onclick="toggleMobileMenu()" aria-label="Toggle menu">
+					<span></span>
+					<span></span>
+					<span></span>
+				</button>
+				<ul class="nav-menu" id="navMenu">
+					<li class="nav-item"><a href="index.html#cine-suntem" class="nav-link" onclick="closeMobileMenu()">Cine suntem?</a></li>
+					<li class="nav-item"><a href="index.html#despre" class="nav-link" onclick="closeMobileMenu()">Despre Noi</a></li>
+					<li class="nav-item"><a href="index.html#social" class="nav-link" onclick="closeMobileMenu()">Social Media</a></li>
+					<li class="nav-item"><a href="index.html#pachete" class="nav-link" onclick="closeMobileMenu()">Pachete</a></li>
+					<li class="nav-item"><a href="index.html#contact" class="nav-link" onclick="closeMobileMenu()">Contact</a></li>
+				</ul>
+			</div>
+		</nav>
+
+		<script>
+			function toggleMobileMenu() {
+				const navMenu = document.getElementById('navMenu');
+				const toggle = document.querySelector('.mobile-menu-toggle');
+				navMenu.classList.toggle('active');
+				toggle.classList.toggle('active');
+			}
+
+			function closeMobileMenu() {
+				const navMenu = document.getElementById('navMenu');
+				const toggle = document.querySelector('.mobile-menu-toggle');
+				navMenu.classList.remove('active');
+				toggle.classList.remove('active');
+			}
+
+			document.addEventListener('DOMContentLoaded', function() {
+				const rows = document.querySelectorAll('tr');
+				rows.forEach((row, index) => {
+					if (index > 0) {
+						const prevRow = rows[index - 1];
+						const hasRowspan = prevRow.querySelector('td[rowspan]');
+						if (hasRowspan && !row.querySelector('td[rowspan]')) {
+							row.classList.add('mix-row');
+						}
+					}
+				});
+			});
+		</script>
+
+		<h1>🎵 Repertoriu Trupa Sonar 🎵</h1>
 		<table>
 			<tr><td>I.01</td><td colspan="2">Cargo</td><td>Dacă ploaia s-ar opri</td></tr>
 			<tr><td>I.02</td><td colspan="2">Chris Stapleton</td><td>Tennessee whiskey</td></tr>
